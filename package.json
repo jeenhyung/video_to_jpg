@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "ffmpeg-extract-frames": "^2.0.2",
-    "node-video-duration": "^1.0.1"
+    "get-video-duration": "^3.0.1",
+    "node-video-duration": "^1.0.1",
+    "shelljs": "^0.8.4"
   }
 }
