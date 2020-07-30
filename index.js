@@ -32,8 +32,8 @@ if (typeof frame !== "number" ) {
   return;
 }
 
-
-const dir = parseInt(argv.idir) || 'videos';
+// console.log(argv.idir)
+const dir = argv.idir || 'videos';
 const files =  fs.readdirSync(dir); // 디렉토리를 읽어온다
 if(files.length === 0 ) return;
 // console.log(files);
@@ -53,8 +53,10 @@ const extractor = (files = [], frame = 1000, output_dir) => {
   console.log(`frame: ${frame}`);
 
   files.forEach(async file => {
-    const input = './videos/' + file
+    const input = dir + '/' + file
     const arSplitFile = file.split(".");
+
+    console.log(`input: ${input}`);
 
     const duration = await getVideoDuration(input).then((duration) => {
       // console.log('Asset duration: ' + duration);
