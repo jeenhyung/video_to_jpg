@@ -62,7 +62,7 @@ files.forEach(file => {
     fs.mkdirSync(o_dir + arSplitFile[0]);
   }
 
-  const cmd = `ffmpeg -i ${input_path} -r ${frame} -f image2 ${out_path}`;
+  const cmd = `ffmpeg -i ${input_path} -qscale:v 1 -r ${frame} -f image2 ${out_path}`;
   console.log(`cmd: ${cmd}`);
 
   var child = shell.exec(cmd, {async:true});
