@@ -53,7 +53,7 @@ if (!fs.existsSync(o_dir)){
 files.forEach(file => {
   const arSplitFile = file.split(".");
   const input_path = i_dir + file;
-  const out_path = o_dir + arSplitFile[0] + "/frame_%d.jpg";
+  const out_path = o_dir + arSplitFile[0] + "/frame_%d.png";
   
   console.log(`input_path: ${input_path}`);
   console.log(`out_path: ${out_path}`);
@@ -62,7 +62,7 @@ files.forEach(file => {
     fs.mkdirSync(o_dir + arSplitFile[0]);
   }
 
-  const cmd = `ffmpeg -i ${input_path} -qscale:v 1 -r ${frame} -f image2 ${out_path}`;
+  const cmd = `ffmpeg -i ${input_path} -qscale:v 1 -codec_name -r ${frame} -f image2 ${out_path}`;
   console.log(`cmd: ${cmd}`);
 
   var child = shell.exec(cmd, {async:true});
